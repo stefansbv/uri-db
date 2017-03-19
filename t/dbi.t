@@ -121,6 +121,19 @@ for my $spec (
         qry => [],
     },
     {
+        uri => 'db:fbodbc://localhost:3051/foo',
+        dsn => 'dbi:ODBC:Server=localhost;Port=3051;Database=foo',
+        dbi => [ [Server => 'localhost'], [Port => 3051], [Database => 'foo'] ],
+        qry => [],
+    },
+    {
+        uri => 'db:fbodbc://foo:123/try?foo=1&foo=2&lol=yes&Driver=Firebird',
+        dsn => 'dbi:ODBC:Driver={Firebird};Server=foo;Port=123;Database=try;foo=1;foo=2;lol=yes',
+        dbi => [ [Server => 'foo'], [Port => 123], [Database => 'try'] ],
+        qry => [ foo => 1, foo => 2, lol => 'yes', Driver => 'Firebird' ],
+
+    },
+    {
         uri => 'db:informix:foo.db',
         dsn => 'dbi:Informix:foo.db',
         dbi => [],
