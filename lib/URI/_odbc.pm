@@ -42,8 +42,8 @@ sub dbi_dsn {
     my $self = shift;
 	my $dbi_driver = $self->dbi_driver;
     my $dsn_params = $self->_dsn_params;
-    if ( $dsn_params =~ m/;Driver=Firebird/ ) {
-        $dsn_params =~ s/;Driver=(\w+)//;
+    if ( $dsn_params =~ m/Firebird/ ) {
+        $dsn_params =~ s/;Driver=(.+)//;
         return join( ':' => 'dbi', $dbi_driver, qq(Driver={$1}) ) . ';' . $dsn_params;
     }
     return join ':' => 'dbi', $dbi_driver, $self->_dsn_params;

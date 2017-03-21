@@ -127,10 +127,10 @@ for my $spec (
         qry => [],
     },
     {
-        uri => 'db:fbodbc://foo:123/try?foo=1&foo=2&lol=yes&Driver=Firebird',
-        dsn => 'dbi:ODBC:Driver={Firebird};Server=foo;Port=123;Database=try;foo=1;foo=2;lol=yes',
+        uri => 'db:fbodbc://foo:123/try?foo=1&foo=2&lol=yes&Driver=Firebird/InterBase(r) driver',
+        dsn => 'dbi:ODBC:Driver={Firebird/InterBase(r) driver};Server=foo;Port=123;Database=try;foo=1;foo=2;lol=yes',
         dbi => [ [Server => 'foo'], [Port => 123], [Database => 'try'] ],
-        qry => [ foo => 1, foo => 2, lol => 'yes', Driver => 'Firebird' ],
+        qry => [ foo => 1, foo => 2, lol => 'yes', Driver => 'Firebird/InterBase(r) driver' ],
 
     },
     {
